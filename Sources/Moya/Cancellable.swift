@@ -8,19 +8,19 @@ public protocol Cancellable {
     func cancel()
 }
 
-internal class CancellableWrapper: Cancellable {
-    internal var innerCancellable: Cancellable = SimpleCancellable()
+public class CancellableWrapper: Cancellable {
+    public var innerCancellable: Cancellable = SimpleCancellable()
 
-    var isCancelled: Bool { innerCancellable.isCancelled }
+    public var isCancelled: Bool { innerCancellable.isCancelled }
 
-    internal func cancel() {
+    public func cancel() {
         innerCancellable.cancel()
     }
 }
 
-internal class SimpleCancellable: Cancellable {
-    var isCancelled = false
-    func cancel() {
+public class SimpleCancellable: Cancellable {
+    public var isCancelled = false
+    public func cancel() {
         isCancelled = true
     }
 }
